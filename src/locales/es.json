@@ -1,0 +1,42 @@
+{
+  "navigation": {
+    "title": "App Itemas",
+    "list": "Lista",
+    "new": "Nueva"
+  },
+  "welcome": {
+    "welcome": "Bienvenido a la app de itemas"
+  },
+  "list": {
+    "title": "Lista de itemas"
+  },
+  "itemCard": {
+    "waterIt": "Regarla",
+    "details": "Detalles",
+    "nextWatering": "Próximo riego en {days} días"
+  },
+  "itemDetails": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "waterEvery": "Regar cada",
+    "days": "días",
+    "lastWatering": "Último riego",
+    "nextWatering": "Próximo riego",
+    "deleteIt": "Eliminarla"
+  },
+  "addJournalEntry": {
+    "add": "Añadir",
+    "insertEntryManually": "Añadir entrada manual:",
+    "messageContent": "Contenido del mensaje"
+  },
+  "newItem": {
+    "name": "Nombre:",
+    "enterItemName": "Introduce el nombre",
+    "description": "Descripción:",
+    "enterItemDescription": "Introduce la descripción",
+    "image": "Imagen:",
+    "imageForTheItem": "Imagen de la itema",
+    "submit": "Guardar",
+    "reset": "Limpiar"
+  }
+}

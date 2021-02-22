@@ -1,0 +1,42 @@
+{
+  "navigation": {
+    "title": "Items App",
+    "list": "List",
+    "new": "New"
+  },
+  "welcome": {
+    "welcome": "Welcome to the items app"
+  },
+  "list": {
+    "title": "Item list"
+  },
+  "itemCard": {
+    "waterIt": "Water it",
+    "details": "Details",
+    "nextWatering": "Next watering in {days} days"
+  },
+  "itemDetails": {
+    "name": "Name",
+    "description": "Description",
+    "waterEvery": "Water every",
+    "days": "days",
+    "lastWatering": "Last watering",
+    "nextWatering": "Next watering",
+    "deleteIt": "Delete it"
+  },
+  "addJournalEntry": {
+    "add": "Add",
+    "insertEntryManually": "Insert entry manually:",
+    "messageContent": "Message content"
+  },
+  "newItem": {
+    "name": "Name:",
+    "enterItemName": "Enter the name",
+    "description": "Description:",
+    "enterItemDescription": "Enter the description",
+    "image": "Image:",
+    "imageForTheItem": "Image for the item",
+    "submit": "Submit",
+    "reset": "Reset"
+  }
+}
