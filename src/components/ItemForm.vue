@@ -36,7 +36,6 @@
                 name="parent-id"
                 v-model="item.parent_id"
                 type="number"
-                required
                 :placeholder="$t('itemForm.enterParentId')"
             )
         b-form-group(
