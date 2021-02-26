@@ -6,8 +6,11 @@ export const getItem = async (itemId) => {
   return response.data;
 };
 
-export const getItems = async () => {
-  const response = await axios.get(`${process.env.VUE_APP_API_ENDPOINT}/items`);
+export const getItems = async (parentId) => {
+  const params = parentId ? `?parent=${parentId}` : "";
+  const response = await axios.get(
+    `${process.env.VUE_APP_API_ENDPOINT}/items${params}`
+  );
   return response.data;
 };
 
