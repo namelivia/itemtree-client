@@ -51,3 +51,20 @@ export const postImage = async (image) => {
   );
   return response.data.location;
 };
+
+export const getComments = async (itemId) => {
+  const params = itemId ? `?item=${itemId}` : "";
+  const response = await axios.get(
+    `${process.env.VUE_APP_API_ENDPOINT}/comments${params}`
+  );
+  return response.data;
+};
+
+export const postComment = async (itemId, data) => {
+  data.item_id = itemId;
+  const response = await axios.post(
+    `${process.env.VUE_APP_API_ENDPOINT}/comments`,
+    data
+  );
+  return response.data;
+};

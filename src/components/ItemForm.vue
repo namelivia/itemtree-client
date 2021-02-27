@@ -48,7 +48,7 @@
                 name="destination-id"
                 v-model="item.destination_id"
                 type="number"
-                :placeholder="$t('itemForm.enterParentId')"
+                :placeholder="$t('itemForm.enterDestinationId')"
             )
         b-form-checkbox(
             id="is-container"

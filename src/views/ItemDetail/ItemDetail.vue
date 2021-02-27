@@ -4,6 +4,8 @@ section
     div(v-else)
         item-card-big(:item-id="itemId")
         .mt-4
+        comments(:item-id="itemId")
+        .mt-4
         b-card-group(columns)
             item-card(
                 v-for='item in children' :key='item.id'
@@ -20,10 +22,12 @@ section
 <script>
 import ItemCard from "@/components/ItemCard";
 import ItemCardBig from "./components/ItemCardBig";
+import Comments from "@/components/Comments";
 import { getItems } from "@/apis/apis";
 import { errorToast } from "@/helpers/ui";
 export default {
   components: {
+    Comments,
     ItemCardBig,
     ItemCard,
   },
