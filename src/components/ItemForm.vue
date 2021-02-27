@@ -48,7 +48,6 @@
                 name="destination-id"
                 v-model="item.destination_id"
                 type="number"
-                required
                 :placeholder="$t('itemForm.enterParentId')"
             )
         b-form-checkbox(
@@ -79,8 +78,11 @@ export default {
       type: Object,
       default: () => {
         return {
-          name: "",
+          name: null,
           description: null,
+          parent_id: null,
+          destination_id: null,
+          is_container: false,
           image: null,
         };
       },
@@ -90,8 +92,11 @@ export default {
     return {
       show: true,
       item: {
-        name: "",
+        name: null,
         description: null,
+        parent_id: null,
+        destination_id: null,
+        is_container: false,
         image: null,
       },
     };
@@ -129,8 +134,11 @@ export default {
       if (evt) {
         evt.preventDefault();
       }
-      this.item.name = "";
+      this.item.name = null;
       this.item.description = null;
+      this.item.parent_id = null;
+      this.item.destination_id = null;
+      this.item.is_container = false;
       this.item.image = null;
       this.show = false;
       this.$nextTick(() => {
