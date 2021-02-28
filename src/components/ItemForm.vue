@@ -15,7 +15,7 @@
             )
         b-form-group(
             id="description-input-group"
-            :label="$t('itemForm.descriptiom')"
+            :label="$t('itemForm.description')"
             label-for="description"
         )
             b-form-input(
@@ -59,11 +59,11 @@
             unchecked-value="false"
             :placeholder="$t('itemForm.enterIsContainer')"
         )
-            | {{$t('newItem.isContainer')}}
+            | {{$t('itemForm.isContainer')}}
         resize-image-upload(@loaded="onImageLoaded")
         .mt-4
-        b-button.mr-2(type="submit" variant="primary") {{$t('newItem.submit')}}
-        b-button(type="reset" variant="danger") {{$t('newItem.reset')}}
+        b-button.mr-2(type="submit" variant="primary") {{$t('itemForm.submit')}}
+        b-button(type="reset" variant="danger") {{$t('itemForm.reset')}}
 </template>
 <script>
 import ResizeImageUpload from "@/components/ResizeImageUpload";

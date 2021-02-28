@@ -11,31 +11,35 @@
     "title": "Item list"
   },
   "itemCard": {
-    "waterIt": "Water it",
     "details": "Details",
-    "nextWatering": "Next watering in {days} days"
+    "editIt": "Edit it"
   },
   "itemDetails": {
     "name": "Name",
     "description": "Description",
-    "waterEvery": "Water every",
-    "days": "days",
-    "lastWatering": "Last watering",
-    "nextWatering": "Next watering",
-    "deleteIt": "Delete it"
+    "parentId": "Parent Id",
+    "destinationId": "Destination id",
+    "isContainer": "Is container",
+    "deleteIt": "Delete it",
+    "editIt": "Edit it"
   },
-  "addJournalEntry": {
+  "addComment": {
     "add": "Add",
-    "insertEntryManually": "Insert entry manually:",
-    "messageContent": "Message content"
+    "insertComment": "Insert comment:",
+    "content": "Comment content"
   },
-  "newItem": {
+  "itemForm": {
     "name": "Name:",
     "enterItemName": "Enter the name",
     "description": "Description:",
     "enterItemDescription": "Enter the description",
+    "parentId": "Parent Id:",
+    "enterParentId": "Enter parent id",
+    "destinationId": "Destination Id:",
+    "enterDestinationId": "Enter destination id",
     "image": "Image:",
     "imageForTheItem": "Image for the item",
+    "isContainer": "Is container",
     "submit": "Submit",
     "reset": "Reset"
   }

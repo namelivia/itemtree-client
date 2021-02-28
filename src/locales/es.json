@@ -5,37 +5,41 @@
     "new": "Nueva"
   },
   "welcome": {
-    "welcome": "Bienvenido a la app de itemas"
+    "welcome": "Bienvenido a la app de objetos"
   },
   "list": {
-    "title": "Lista de itemas"
+    "title": "Lista de objetos"
   },
   "itemCard": {
-    "waterIt": "Regarla",
     "details": "Detalles",
-    "nextWatering": "Próximo riego en {days} días"
+    "editIt": "Editarlo"
   },
   "itemDetails": {
     "name": "Nombre",
     "description": "Descripción",
-    "waterEvery": "Regar cada",
-    "days": "días",
-    "lastWatering": "Último riego",
-    "nextWatering": "Próximo riego",
-    "deleteIt": "Eliminarla"
+    "parentId": "Id padre",
+    "destinationId": "Id destino",
+    "isContainer": "Es contenedor",
+    "deleteIt": "Eliminarlo",
+    "editIt": "Editarlo"
   },
-  "addJournalEntry": {
+  "addComment": {
     "add": "Añadir",
-    "insertEntryManually": "Añadir entrada manual:",
-    "messageContent": "Contenido del mensaje"
+    "insertComment": "Añadir comentario:",
+    "content": "Contenido del comentario"
   },
-  "newItem": {
+  "itemForm": {
     "name": "Nombre:",
     "enterItemName": "Introduce el nombre",
     "description": "Descripción:",
     "enterItemDescription": "Introduce la descripción",
+    "parentId": "Id padre:",
+    "enterParentId": "Introduce el id padre",
+    "destinationId": "Id destino:",
+    "enterDestinationId": "Introduce el id destino",
     "image": "Imagen:",
-    "imageForTheItem": "Imagen de la itema",
+    "imageForTheItem": "Imagen del objeto",
+    "isContainer": "Es contenedor",
     "submit": "Guardar",
     "reset": "Limpiar"
   }

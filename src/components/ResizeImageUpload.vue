@@ -2,7 +2,7 @@
     b-spinner(v-if="resizing" label="Loading...")
     b-form-group(
         id="image-input-group"
-        :label="$t('newItem.image')"
+        :label="$t('itemForm.image')"
         label-for="image"
         v-else
     )
@@ -11,8 +11,8 @@
             name="image"
             v-model="rawImage"
             accept="image/*"
-            :placeholder="$t('newItem.imageForTheItem')"
-            :drop-placeholder="$t('newItem.imageForTheItem')"
+            :placeholder="$t('itemForm.imageForTheItem')"
+            :drop-placeholder="$t('itemForm.imageForTheItem')"
             @input="onInput"
         )
 </template>
