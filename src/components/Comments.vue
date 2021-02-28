@@ -4,6 +4,7 @@ section(v-else)
     .mt-4
     comment(
       v-for='comment in comments' :key='comment.id'
+        :user="comment.user_name"
         :content="comment.content"
       )
     add-comment.mt-4(:item-id="this.id")
