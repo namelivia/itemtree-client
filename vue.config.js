@@ -1,5 +1,5 @@
 // vue.config.js
-//
+
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
@@ -9,6 +9,10 @@ module.exports = {
     ],
   },
   chainWebpack: (config) => {
+    //Eslint autofix
+    config.module.rule('eslint').use('eslint-loader').options({
+      fix: true
+    })
     //Pug loader
     config.module
       .rule("pug")
