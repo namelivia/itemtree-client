@@ -11,10 +11,10 @@ section(v-else)
     add-comment.mt-4(:item-id="this.id")
 </template>
 <script>
-import { getComments } from "@/apis/apis";
-import { errorToast } from "@/helpers/ui";
-import Comment from "./Comment";
-import AddComment from "./AddComment";
+import { getComments } from '@/apis/apis'
+import { errorToast } from '@/helpers/ui'
+import Comment from './Comment'
+import AddComment from './AddComment'
 export default {
   components: {
     Comment,
@@ -31,27 +31,27 @@ export default {
       comments: [],
       id: null,
       loading: true,
-    };
+    }
   },
   watch: {
     itemId: {
       immediate: true,
       handler: function (newData) {
-        this.id = newData;
-        this.loadComments();
+        this.id = newData
+        this.loadComments()
       },
     },
   },
   methods: {
     async loadComments() {
       try {
-        this.comments = await getComments(this.id);
+        this.comments = await getComments(this.id)
       } catch (err) {
-        this.$bvToast.toast(`Comments can't be retrieved`, errorToast);
+        this.$bvToast.toast(`Comments can't be retrieved`, errorToast)
       } finally {
-        this.loading = false;
+        this.loading = false
       }
     },
   },
-};
+}
 </script>

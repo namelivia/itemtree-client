@@ -10,12 +10,12 @@
                 b-button.ml-2(v-t="'itemCard.details'")
 </template>
 <script>
-import { getImageUrl } from "@/apis/helpers";
+import { getImageUrl } from '@/apis/helpers'
 export default {
   props: {
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     id: {
       type: Number,
@@ -35,33 +35,33 @@ export default {
     },
     description: {
       type: String,
-      default: "",
+      default: '',
     },
     imagePath: {
       type: String,
-      default: "@/assets/images/image-placeholder.png",
+      default: '@/assets/images/image-placeholder.png',
     },
   },
   data: function () {
     return {
       imageWidth: 0,
-    };
+    }
   },
   computed: {
     imageUrl: function () {
       if (this.imagePath && this.imageWidth) {
-        return getImageUrl(this.imagePath, this.imageWidth);
+        return getImageUrl(this.imagePath, this.imageWidth)
       }
-      return null;
+      return null
     },
   },
   mounted: function () {
-    this.calculateWidth();
+    this.calculateWidth()
   },
   methods: {
     calculateWidth() {
-      this.imageWidth = this.$refs.image.$el.clientWidth;
+      this.imageWidth = this.$refs.image.$el.clientWidth
     },
   },
-};
+}
 </script>

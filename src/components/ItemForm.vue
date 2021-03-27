@@ -66,9 +66,9 @@
         b-button(type="reset" variant="danger") {{$t('itemForm.reset')}}
 </template>
 <script>
-import ResizeImageUpload from "@/components/ResizeImageUpload";
-import { postImage } from "@/apis/apis";
-import { errorToast } from "@/helpers/ui";
+import ResizeImageUpload from '@/components/ResizeImageUpload'
+import { postImage } from '@/apis/apis'
+import { errorToast } from '@/helpers/ui'
 export default {
   components: {
     ResizeImageUpload,
@@ -84,7 +84,7 @@ export default {
           destination_id: null,
           is_container: false,
           image: null,
-        };
+        }
       },
     },
   },
@@ -99,52 +99,52 @@ export default {
         is_container: false,
         image: null,
       },
-    };
+    }
   },
   watch: {
     initialData: {
       immediate: true,
       handler: function (newData) {
-        this.item = newData;
+        this.item = newData
       },
     },
   },
   methods: {
     onImageLoaded(newImage) {
-      this.item.image = newImage;
+      this.item.image = newImage
     },
     async uploadImage() {
       //After creating if the item upload image if has it
       if (this.item.image) {
         try {
-          this.item.image = await postImage(this.item.image);
+          this.item.image = await postImage(this.item.image)
         } catch (err) {
-          this.$bvToast.toast(`Image could not be loaded`, errorToast);
+          this.$bvToast.toast(`Image could not be loaded`, errorToast)
         }
       }
     },
     async onSubmit(evt) {
       if (evt) {
-        evt.preventDefault();
+        evt.preventDefault()
       }
-      await this.uploadImage();
-      this.$emit("submit", this.item);
+      await this.uploadImage()
+      this.$emit('submit', this.item)
     },
     onReset(evt) {
       if (evt) {
-        evt.preventDefault();
+        evt.preventDefault()
       }
-      this.item.name = null;
-      this.item.description = null;
-      this.item.parent_id = null;
-      this.item.destination_id = null;
-      this.item.is_container = false;
-      this.item.image = null;
-      this.show = false;
+      this.item.name = null
+      this.item.description = null
+      this.item.parent_id = null
+      this.item.destination_id = null
+      this.item.is_container = false
+      this.item.image = null
+      this.show = false
       this.$nextTick(() => {
-        this.show = true;
-      });
+        this.show = true
+      })
     },
   },
-};
+}
 </script>

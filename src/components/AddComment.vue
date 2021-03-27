@@ -18,8 +18,8 @@ section
                     b-button(type="submit" variant="primary" v-t="'addComment.add'")
 </template>
 <script>
-import { postComment } from "@/apis/apis";
-import { errorToast, okToast } from "@/helpers/ui";
+import { postComment } from '@/apis/apis'
+import { errorToast, okToast } from '@/helpers/ui'
 export default {
   props: {
     itemId: {
@@ -30,32 +30,32 @@ export default {
   data() {
     return {
       form: {
-        content: "",
+        content: '',
       },
       show: true,
-    };
+    }
   },
   methods: {
     async onSubmit(evt) {
       try {
-        evt.preventDefault();
-        await postComment(this.itemId, this.form);
-        this.$bvToast.toast(`Comment added`, okToast);
-        this.onReset();
+        evt.preventDefault()
+        await postComment(this.itemId, this.form)
+        this.$bvToast.toast(`Comment added`, okToast)
+        this.onReset()
       } catch (err) {
-        this.$bvToast.toast(`Comment could not be added`, errorToast);
+        this.$bvToast.toast(`Comment could not be added`, errorToast)
       }
     },
     onReset(evt) {
       if (evt) {
-        evt.preventDefault();
+        evt.preventDefault()
       }
-      this.form.content = "";
-      this.show = false;
+      this.form.content = ''
+      this.show = false
       this.$nextTick(() => {
-        this.show = true;
-      });
+        this.show = true
+      })
     },
   },
-};
+}
 </script>

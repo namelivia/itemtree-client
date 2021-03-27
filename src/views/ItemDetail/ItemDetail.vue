@@ -20,11 +20,11 @@ section
 </template>
 
 <script>
-import ItemCard from "@/components/ItemCard";
-import ItemCardBig from "./components/ItemCardBig";
-import Comments from "@/components/Comments";
-import { getItems } from "@/apis/apis";
-import { errorToast } from "@/helpers/ui";
+import ItemCard from '@/components/ItemCard'
+import ItemCardBig from './components/ItemCardBig'
+import Comments from '@/components/Comments'
+import { getItems } from '@/apis/apis'
+import { errorToast } from '@/helpers/ui'
 export default {
   components: {
     Comments,
@@ -41,26 +41,26 @@ export default {
     return {
       children: [],
       loading: true,
-    };
+    }
   },
   watch: {
     itemId: {
       immediate: true,
       handler: function () {
-        this.loadChildren();
+        this.loadChildren()
       },
     },
   },
   methods: {
     async loadChildren() {
       try {
-        this.children = await getItems(this.itemId);
+        this.children = await getItems(this.itemId)
       } catch (err) {
-        this.$bvToast.toast(`Children items can't be retrieved`, errorToast);
+        this.$bvToast.toast(`Children items can't be retrieved`, errorToast)
       } finally {
-        this.loading = false;
+        this.loading = false
       }
     },
   },
-};
+}
 </script>

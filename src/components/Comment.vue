@@ -10,21 +10,21 @@ export default {
   props: {
     content: {
       type: String,
-      default: "",
+      default: '',
     },
     user: {
       type: String,
-      default: "",
+      default: '',
     },
     date: {
       type: Date,
-      default: "",
+      default: '',
     },
   },
   computed: {
     formattedDate: function () {
-      return new Date(this.date).toLocaleString();
+      return new Date(this.date).toLocaleString()
     },
   },
-};
+}
 </script>

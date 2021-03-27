@@ -14,10 +14,10 @@ section(v-else)
 </template>
 
 <script>
-import { getItem, deleteItem } from "@/apis/apis";
-import { getImageUrl } from "@/apis/helpers";
-import { errorToast, okToast } from "@/helpers/ui";
-import router from "@/router";
+import { getItem, deleteItem } from '@/apis/apis'
+import { getImageUrl } from '@/apis/helpers'
+import { errorToast, okToast } from '@/helpers/ui'
+import router from '@/router'
 export default {
   props: {
     itemId: {
@@ -29,45 +29,45 @@ export default {
     return {
       item: null,
       loading: true,
-    };
+    }
   },
   computed: {
     imageUrl: function () {
       if (this.item.image) {
-        return getImageUrl(this.item.image);
+        return getImageUrl(this.item.image)
       }
-      return null;
+      return null
     },
   },
   watch: {
     itemId: {
       immediate: true,
       handler: function (newData) {
-        this.loadItem(newData);
+        this.loadItem(newData)
       },
     },
   },
   methods: {
     async loadItem(itemId) {
       try {
-        this.item = await getItem(itemId);
+        this.item = await getItem(itemId)
       } catch (err) {
-        this.$bvToast.toast(`Item can't be retrieved`, errorToast);
+        this.$bvToast.toast(`Item can't be retrieved`, errorToast)
       } finally {
-        this.loading = false;
+        this.loading = false
       }
     },
     async onDelete(evt) {
-      evt.preventDefault();
+      evt.preventDefault()
       try {
-        deleteItem(this.item.id);
-        router.replace("/list", () => {
-          this.$root.$bvToast.toast(`Item removed`, okToast);
-        });
+        deleteItem(this.item.id)
+        router.replace('/list', () => {
+          this.$root.$bvToast.toast(`Item removed`, okToast)
+        })
       } catch (err) {
-        this.$bvToast.toast(`Item could not be removed`, errorToast);
+        this.$bvToast.toast(`Item could not be removed`, errorToast)
       }
     },
   },
-};
+}
 </script>

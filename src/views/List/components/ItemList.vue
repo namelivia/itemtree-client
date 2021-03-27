@@ -15,9 +15,9 @@ section
 </template>
 
 <script>
-import ItemCard from "@/components/ItemCard";
-import { getItems } from "@/apis/apis";
-import { errorToast } from "@/helpers/ui";
+import ItemCard from '@/components/ItemCard'
+import { getItems } from '@/apis/apis'
+import { errorToast } from '@/helpers/ui'
 export default {
   components: {
     itemCard: ItemCard,
@@ -26,21 +26,21 @@ export default {
     return {
       items: [],
       loading: true,
-    };
+    }
   },
   mounted: function () {
-    this.loadList();
+    this.loadList()
   },
   methods: {
     async loadList() {
       try {
-        this.items = await getItems();
+        this.items = await getItems()
       } catch (err) {
-        this.$bvToast.toast(`Items can't be retrieved`, errorToast);
+        this.$bvToast.toast(`Items can't be retrieved`, errorToast)
       } finally {
-        this.loading = false;
+        this.loading = false
       }
     },
   },
-};
+}
 </script>
