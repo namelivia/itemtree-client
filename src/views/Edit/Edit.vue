@@ -1,6 +1,6 @@
 <template lang="pug">
 section
-    h1 Edit existing item
+    section-title(text="Edit existing item")
     item-form(@submit="onSubmit" :initial-data="form")
 </template>
 
