@@ -34,7 +34,7 @@
         resize-image-upload(@loaded="onImageLoaded")
         .mt-4
         submit-button.mr-2(:text="$t('itemForm.submit')")
-        reset-button(:text="$t('itemForm.reset'")
+        reset-button(:text="$t('itemForm.reset')")
 </template>
 <script>
 import ResizeImageUpload from '@/components/ResizeImageUpload'
