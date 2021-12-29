@@ -1,25 +1,18 @@
 <template lang="pug">
 section
-    b-form(@submit="onSubmit" @reset="onReset"  v-if="show")
-        b-form-group(
-            id="message-input-group"
-            :label="$t('addComment.insertComment')"
-            label-for="message"
+    form(@submit="onSubmit" @reset="onReset"  v-if="show")
+        text-input(
+          :name="content"
+          :label="$t('addComment.insertComment')"
+          :placeholder="$t('addComment.content')"
+          @update="form.content = $event"
+          required
         )
-            b-input-group
-                b-form-input(
-                    id="content"
-                    name="content"
-                    v-model="form.content"
-                    type="text"
-                    :placeholder="$t('addComment.content')"
-                )
-                b-input-group-append
-                    b-button(type="submit" variant="primary" v-t="'addComment.add'")
+        submit-button(:text="$t('addComment.add')")
 </template>
 <script>
 import { postComment } from '@/apis/apis'
-import { errorToast, okToast } from '@/helpers/ui'
+//import { errorToast, okToast } from '@/helpers/ui'
 export default {
   props: {
     itemId: {
@@ -40,10 +33,10 @@ export default {
       try {
         evt.preventDefault()
         await postComment(this.itemId, this.form)
-        this.$bvToast.toast(`Comment added`, okToast)
+        //this.$bvToast.toast(`Comment added`, okToast)
         this.onReset()
       } catch (err) {
-        this.$bvToast.toast(`Comment could not be added`, errorToast)
+        //this.$bvToast.toast(`Comment could not be added`, errorToast)
       }
     },
     onReset(evt) {

@@ -7,7 +7,7 @@ section
 <script>
 import router from '@/router'
 import { getItem, putItem } from '@/apis/apis'
-import { errorToast, okToast } from '@/helpers/ui'
+//import { errorToast, okToast } from '@/helpers/ui'
 import ItemForm from '@/components/ItemForm'
 export default {
   components: {
@@ -47,7 +47,7 @@ export default {
         this.form.isContainer = item.is_container
         this.form.image = item.image
       } catch (err) {
-        this.$bvToast.toast(`Item can't be retrieved`, errorToast)
+        //this.$bvToast.toast(`Item can't be retrieved`, errorToast)
       } finally {
         this.loading = false
       }
@@ -56,10 +56,10 @@ export default {
       try {
         await putItem(this.itemId, data)
         router.replace('/list', () => {
-          this.$root.$bvToast.toast(`Item ${data.name} created`, okToast)
+          //this.$root.$bvToast.toast(`Item ${data.name} created`, okToast)
         })
       } catch (err) {
-        this.$bvToast.toast(`Item could not be updated`, errorToast)
+        //this.$bvToast.toast(`Item could not be updated`, errorToast)
       }
     },
   },

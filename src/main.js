@@ -1,4 +1,3 @@
-import BootstrapVue from 'bootstrap-vue'
 import Vue from 'vue'
 import axios from 'axios'
 import router from './router'
@@ -17,6 +16,7 @@ import {
   CardBody,
   Selector,
   TextInput,
+  CheckBoxInput,
   NumberInput,
   ImageInput,
   CardGrid,
@@ -35,13 +35,13 @@ Vue.component('CardImage', CardImage)
 Vue.component('CardBody', CardBody)
 Vue.component('Selector', Selector)
 Vue.component('TextInput', TextInput)
+Vue.component('CheckBoxInput', CheckBoxInput)
 Vue.component('NumberInput', NumberInput)
 Vue.component('ImageInput', ImageInput)
 Vue.component('CardGrid', CardGrid)
 Vue.component('Navbar', Navbar)
 
 Vue.prototype.$axios = axios
-Vue.use(BootstrapVue)
 
 new Vue({
   router,

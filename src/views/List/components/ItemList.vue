@@ -1,7 +1,7 @@
 <template lang="pug">
 section
-    h3(v-if='loading' ) Loading...
-    b-card-group(v-else columns)
+    loading(v-if='loading')
+    card-grid(v-else)
         item-card(
             v-for='item in items' :key='item.id'
             :id="item.id"
@@ -17,7 +17,7 @@ section
 <script>
 import ItemCard from '@/components/ItemCard'
 import { getItems } from '@/apis/apis'
-import { errorToast } from '@/helpers/ui'
+//import { errorToast } from '@/helpers/ui'
 export default {
   components: {
     itemCard: ItemCard,
@@ -36,7 +36,7 @@ export default {
       try {
         this.items = await getItems()
       } catch (err) {
-        this.$bvToast.toast(`Items can't be retrieved`, errorToast)
+        //this.$bvToast.toast(`Items can't be retrieved`, errorToast)
       } finally {
         this.loading = false
       }

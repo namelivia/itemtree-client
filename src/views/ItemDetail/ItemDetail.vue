@@ -1,13 +1,13 @@
 <template lang="pug">
 section
-    h3(v-if='loading' ) Loading...
+    loading(v-if='loading')
     div(v-else)
         item-card-big(:item-id="itemId")
         .mt-4
         comments(:item-id="itemId")
         .mt-4
-        b-card-group(columns)
-            item-card(
+        card-grid
+          item-card(
                 v-for='item in children' :key='item.id'
                 :id="item.id"
                 :name="item.name"
@@ -24,7 +24,7 @@ import ItemCard from '@/components/ItemCard'
 import ItemCardBig from './components/ItemCardBig'
 import Comments from '@/components/Comments'
 import { getItems } from '@/apis/apis'
-import { errorToast } from '@/helpers/ui'
+//import { errorToast } from '@/helpers/ui'
 export default {
   components: {
     Comments,
@@ -56,7 +56,7 @@ export default {
       try {
         this.children = await getItems(this.itemId)
       } catch (err) {
-        this.$bvToast.toast(`Children items can't be retrieved`, errorToast)
+        //this.$bvToast.toast(`Children items can't be retrieved`, errorToast)
       } finally {
         this.loading = false
       }

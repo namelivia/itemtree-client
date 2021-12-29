@@ -8,7 +8,7 @@ section
 import router from '@/router'
 import ItemForm from '@/components/ItemForm'
 import { postItem } from '@/apis/apis'
-import { errorToast, okToast } from '@/helpers/ui'
+//import { errorToast, okToast } from '@/helpers/ui'
 export default {
   components: {
     ItemForm,
@@ -18,10 +18,10 @@ export default {
       try {
         await postItem(data)
         router.replace('/list', () => {
-          this.$root.$bvToast.toast(`Item ${data.name} created`, okToast)
+          //this.$root.$bvToast.toast(`Item ${data.name} created`, okToast)
         })
       } catch (err) {
-        this.$bvToast.toast(`Item could not be created`, errorToast)
+        //this.$bvToast.toast(`Item could not be created`, errorToast)
       }
     },
   },

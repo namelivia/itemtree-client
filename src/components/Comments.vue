@@ -1,5 +1,5 @@
 <template lang="pug">
-b-spinner(v-if="loading" label="Loading...")
+loading(v-if='loading')
 section(v-else)
     .mt-4
     comment(
@@ -12,7 +12,7 @@ section(v-else)
 </template>
 <script>
 import { getComments } from '@/apis/apis'
-import { errorToast } from '@/helpers/ui'
+//import { errorToast } from '@/helpers/ui'
 import Comment from './Comment'
 import AddComment from './AddComment'
 export default {
@@ -47,7 +47,7 @@ export default {
       try {
         this.comments = await getComments(this.id)
       } catch (err) {
-        this.$bvToast.toast(`Comments can't be retrieved`, errorToast)
+        //this.$bvToast.toast(`Comments can't be retrieved`, errorToast)
       } finally {
         this.loading = false
       }
