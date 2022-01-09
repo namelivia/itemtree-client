@@ -13,8 +13,8 @@ section(v-else)
 <script>
 import { getComments } from '@/apis/apis'
 //import { errorToast } from '@/helpers/ui'
-import Comment from './Comment'
-import AddComment from './AddComment'
+import Comment from '@/components/Comment.vue'
+import AddComment from '@/components/AddComment.vue'
 export default {
   components: {
     Comment,

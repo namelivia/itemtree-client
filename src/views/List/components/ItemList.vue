@@ -15,7 +15,7 @@ section
 </template>
 
 <script>
-import ItemCard from '@/components/ItemCard'
+import ItemCard from '@/components/ItemCard.vue'
 import { getItems } from '@/apis/apis'
 //import { errorToast } from '@/helpers/ui'
 export default {

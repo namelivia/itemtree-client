@@ -8,7 +8,7 @@ section
 import router from '@/router'
 import { getItem, putItem } from '@/apis/apis'
 //import { errorToast, okToast } from '@/helpers/ui'
-import ItemForm from '@/components/ItemForm'
+import ItemForm from '@/components/ItemForm.vue'
 export default {
   components: {
     ItemForm,

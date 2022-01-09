@@ -6,7 +6,7 @@ section
 
 <script>
 import router from '@/router'
-import ItemForm from '@/components/ItemForm'
+import ItemForm from '@/components/ItemForm.vue'
 import { postItem } from '@/apis/apis'
 //import { errorToast, okToast } from '@/helpers/ui'
 export default {
