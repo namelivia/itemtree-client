@@ -20,9 +20,9 @@ section
 </template>
 
 <script>
-import ItemCard from '@/components/ItemCard'
-import ItemCardBig from './components/ItemCardBig'
-import Comments from '@/components/Comments'
+import ItemCard from '@/components/ItemCard.vue'
+import ItemCardBig from '@/views/ItemDetail/components/ItemCardBig.vue'
+import Comments from '@/components/Comments.vue'
 import { getItems } from '@/apis/apis'
 //import { errorToast } from '@/helpers/ui'
 export default {

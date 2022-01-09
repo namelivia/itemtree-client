@@ -1,9 +1,9 @@
 <template lang="pug">
-    card.mb-2
-      card-body
-        p.mb-0 
-         b {{user}} - {{ formattedDate }}:
-        p.mb-0 {{content}}
+card.mb-2
+  card-body
+    p.mb-0 
+     b {{user}} - {{ formattedDate }}:
+    p.mb-0 {{content}}
 </template>
 <script>
 export default {

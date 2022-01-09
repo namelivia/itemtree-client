@@ -1,49 +1,45 @@
 <template lang="pug">
-    form(@submit="onSubmit" @reset="onReset"  v-if="show")
-        text-input(
-          :name="name"
-          :label="$t('itemForm.name')"
-          :placeholder="$t('itemForm.enterItemName')"
-          @update="item.name = $event"
-          required
-        )
-        text-input(
-          :name="description"
-          :label="$t('itemForm.description')"
-          :placeholder="$t('itemForm.enterItemDescription')"
-          @update="item.description = $event"
-          required
-        )
-        number-input(
-          :name="parent-id"
-          :label="$t('itemForm.parentId')"
-          :placeholder="$t('itemForm.enterParentId')"
-          @update="item.parent_id = $event"
-        )
-        number-input(
-          :name="destination-id"
-          :label="$t('itemForm.destinationId')"
-          :placeholder="$t('itemForm.enterDestinationId')"
-          @update="item.destination_id = $event"
-        )
-        checkbox-input(
-          :name="is-container"
-          :label="$t('itemForm.isContainer')"
-          @update="item.is_container = $event"
-        )
-        resize-image-upload(@loaded="onImageLoaded")
-        .mt-4
-        submit-button.mr-2(:text="$t('itemForm.submit')")
-        reset-button(:text="$t('itemForm.reset')")
+form(@submit="onSubmit" @reset="onReset"  v-if="show")
+    text-input(
+      :name="name"
+      :label="$t('itemForm.name')"
+      :placeholder="$t('itemForm.enterItemName')"
+      @update="item.name = $event"
+      required
+    )
+    text-input(
+      :name="description"
+      :label="$t('itemForm.description')"
+      :placeholder="$t('itemForm.enterItemDescription')"
+      @update="item.description = $event"
+      required
+    )
+    number-input(
+      :name="parent-id"
+      :label="$t('itemForm.parentId')"
+      :placeholder="$t('itemForm.enterParentId')"
+      @update="item.parent_id = $event"
+    )
+    number-input(
+      :name="destination-id"
+      :label="$t('itemForm.destinationId')"
+      :placeholder="$t('itemForm.enterDestinationId')"
+      @update="item.destination_id = $event"
+    )
+    checkbox-input(
+      :name="is-container"
+      :label="$t('itemForm.isContainer')"
+      @update="item.is_container = $event"
+    )
+    resize-image-upload(@loaded="onImageLoaded")
+    .mt-4
+    submit-button.mr-2(:text="$t('itemForm.submit')")
+    reset-button(:text="$t('itemForm.reset')")
 </template>
 <script>
-import ResizeImageUpload from '@/components/ResizeImageUpload'
 import { postImage } from '@/apis/apis'
 //import { errorToast } from '@/helpers/ui'
 export default {
-  components: {
-    ResizeImageUpload,
-  },
   props: {
     initialData: {
       type: Object,
