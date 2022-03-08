@@ -12,7 +12,7 @@ section(v-else)
 </template>
 <script>
 import { getComments } from '@/apis/apis'
-//import { errorToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 import Comment from '@/components/Comment.vue'
 import AddComment from '@/components/AddComment.vue'
 export default {
@@ -44,10 +44,11 @@ export default {
   },
   methods: {
     async loadComments() {
+      const toast = useToast()
       try {
         this.comments = await getComments(this.id)
       } catch (err) {
-        //this.$bvToast.toast(`Comments can't be retrieved`, errorToast)
+        toast.error(`Comments can't be retrieved`)
       } finally {
         this.loading = false
       }

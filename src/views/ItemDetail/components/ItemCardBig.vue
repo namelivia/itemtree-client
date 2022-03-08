@@ -16,7 +16,7 @@ section(v-else)
 <script>
 import { getItem, deleteItem } from '@/apis/apis'
 import { getImageUrl } from '@/apis/helpers'
-//import { errorToast, okToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 import router from '@/router'
 export default {
   props: {
@@ -49,23 +49,25 @@ export default {
   },
   methods: {
     async loadItem(itemId) {
+      const toast = useToast()
       try {
         this.item = await getItem(itemId)
       } catch (err) {
-        //this.$bvToast.toast(`Item can't be retrieved`, errorToast)
+        toast.error(`Item can't be retrieved`)
       } finally {
         this.loading = false
       }
     },
     async onDelete(evt) {
       evt.preventDefault()
+      const toast = useToast()
       try {
         deleteItem(this.item.id)
         router.replace('/list', () => {
-          //this.$root.$bvToast.toast(`Item removed`, okToast)
+          toast.success(`Item removed`)
         })
       } catch (err) {
-        //this.$bvToast.toast(`Item could not be removed`, errorToast)
+        toast.error(`Item could not be removed`)
       }
     },
   },

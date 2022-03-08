@@ -12,7 +12,7 @@ section
 </template>
 <script>
 import { postComment } from '@/apis/apis'
-//import { errorToast, okToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 export default {
   props: {
     itemId: {
@@ -30,13 +30,14 @@ export default {
   },
   methods: {
     async onSubmit(evt) {
+      const toast = useToast()
       try {
         evt.preventDefault()
         await postComment(this.itemId, this.form)
-        //this.$bvToast.toast(`Comment added`, okToast)
+        toast.success(`Comment added`)
         this.onReset()
       } catch (err) {
-        //this.$bvToast.toast(`Comment could not be added`, errorToast)
+        toast.error(`Comment could not be added`)
       }
     },
     onReset(evt) {

@@ -7,7 +7,7 @@ section
 <script>
 import router from '@/router'
 import { getItem, putItem } from '@/apis/apis'
-//import { errorToast, okToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 import ItemForm from '@/components/ItemForm.vue'
 export default {
   components: {
@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     async loadItem() {
+      const toast = useToast()
       try {
         const item = await getItem(this.itemId)
         //TODO: I can't do this using the spread operator
@@ -47,19 +48,20 @@ export default {
         this.form.isContainer = item.is_container
         this.form.image = item.image
       } catch (err) {
-        //this.$bvToast.toast(`Item can't be retrieved`, errorToast)
+        toast.error(`Item can't be retrieved`)
       } finally {
         this.loading = false
       }
     },
     async onSubmit(data) {
+      const toast = useToast()
       try {
         await putItem(this.itemId, data)
         router.replace('/list', () => {
-          //this.$root.$bvToast.toast(`Item ${data.name} created`, okToast)
+          toast.success(`Item ${data.name} created`)
         })
       } catch (err) {
-        //this.$bvToast.toast(`Item could not be updated`, errorToast)
+        toast.error(`Item could not be updated`)
       }
     },
   },

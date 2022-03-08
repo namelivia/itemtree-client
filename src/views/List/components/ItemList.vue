@@ -17,7 +17,7 @@ section
 <script>
 import ItemCard from '@/components/ItemCard.vue'
 import { getItems } from '@/apis/apis'
-//import { errorToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 export default {
   components: {
     itemCard: ItemCard,
@@ -33,10 +33,11 @@ export default {
   },
   methods: {
     async loadList() {
+      const toast = useToast()
       try {
         this.items = await getItems()
       } catch (err) {
-        //this.$bvToast.toast(`Items can't be retrieved`, errorToast)
+        toast.error(`Items can't be retrieved`)
       } finally {
         this.loading = false
       }
