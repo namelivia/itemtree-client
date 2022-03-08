@@ -24,7 +24,7 @@ import ItemCard from '@/components/ItemCard.vue'
 import ItemCardBig from '@/views/ItemDetail/components/ItemCardBig.vue'
 import Comments from '@/components/Comments.vue'
 import { getItems } from '@/apis/apis'
-//import { errorToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 export default {
   components: {
     Comments,
@@ -53,10 +53,11 @@ export default {
   },
   methods: {
     async loadChildren() {
+      const toast = useToast()
       try {
         this.children = await getItems(this.itemId)
       } catch (err) {
-        //this.$bvToast.toast(`Children items can't be retrieved`, errorToast)
+        toast.error(`Children items can't be retrieved`)
       } finally {
         this.loading = false
       }

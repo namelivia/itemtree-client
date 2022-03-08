@@ -8,20 +8,21 @@ section
 import router from '@/router'
 import ItemForm from '@/components/ItemForm.vue'
 import { postItem } from '@/apis/apis'
-//import { errorToast, okToast } from '@/helpers/ui'
+import { useToast } from 'vue-toastification'
 export default {
   components: {
     ItemForm,
   },
   methods: {
     async onSubmit(data) {
+      const toast = useToast()
       try {
         await postItem(data)
         router.replace('/list', () => {
-          //this.$root.$bvToast.toast(`Item ${data.name} created`, okToast)
+          toast.success(`Item ${data.name} created`)
         })
       } catch (err) {
-        //this.$bvToast.toast(`Item could not be created`, errorToast)
+        toast.error(`Item could not be created`)
       }
     },
   },
