@@ -2,6 +2,7 @@
 form(@submit="onSubmit" @reset="onReset"  v-if="show")
     text-input(
       :name="name"
+      :text="item.name"
       :label="$t('itemForm.name')"
       :placeholder="$t('itemForm.enterItemName')"
       @update="item.name = $event"
@@ -9,6 +10,7 @@ form(@submit="onSubmit" @reset="onReset"  v-if="show")
     )
     text-input(
       :name="description"
+      :text="item.description"
       :label="$t('itemForm.description')"
       :placeholder="$t('itemForm.enterItemDescription')"
       @update="item.description = $event"
@@ -18,17 +20,20 @@ form(@submit="onSubmit" @reset="onReset"  v-if="show")
       :name="parent-id"
       :label="$t('itemForm.parentId')"
       :placeholder="$t('itemForm.enterParentId')"
+      :amount="item.parent_id"
       @update="item.parent_id = $event"
     )
     number-input(
       :name="destination-id"
       :label="$t('itemForm.destinationId')"
+      :amount="item.destination_id"
       :placeholder="$t('itemForm.enterDestinationId')"
       @update="item.destination_id = $event"
     )
     checkbox-input(
       :name="is-container"
       :label="$t('itemForm.isContainer')"
+      :checked="item.is_container"
       @update="item.is_container = $event"
     )
     resize-image-upload(@loaded="onImageLoaded")
