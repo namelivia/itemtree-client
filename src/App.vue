@@ -5,8 +5,8 @@
     :locale="$i18n.locale"
     :current-user-email="currentUserEmail"
     title="Itemtree App"
-    imageBig="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-    imageSmall="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+    :imageBig="imageBigUrl"
+    :imageSmall="imageSmallUrl"
   )
   div(class="container mx-auto")
       router-view
@@ -23,6 +23,14 @@ export default {
         { id: 2, text: this.$i18n.t('navigation.new'), href: '/new' },
       ],
     }
+  },
+  computed: {
+    imageBigUrl: function () {
+      return new URL('assets/images/logo-big.svg', import.meta.url).href
+    },
+    imageSmallUrl: function () {
+      return new URL('assets/images/logo-small.svg', import.meta.url).href
+    },
   },
   mounted() {
     this.getCurrentUser()
