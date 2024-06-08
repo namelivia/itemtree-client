@@ -24,7 +24,7 @@
     "@vue/compiler-sfc": "^3.4.27",
     "autoprefixer": "^10.4.19",
     "codecov": "^3.8.3",
-    "cypress": "^13.10.0",
+    "cypress": "^13.11.0",
     "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
