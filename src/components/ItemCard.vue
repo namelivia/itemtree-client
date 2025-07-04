@@ -1,8 +1,6 @@
 <template lang="pug">
 div
-  card
-    card-image(:src="imageUrl" :alt="name" @width="onWidth")
-    card-body(:title="name")
+  card(:image="imageUrl" :title="name" @width="onWidth")
       p {{ description }}
       router-link(:to="{ name: 'item', params: { itemId: id}}")
           secondary-button(:text="$t('itemCard.details')")
