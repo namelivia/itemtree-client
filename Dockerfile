@@ -1,17 +1,22 @@
 # base builder stage
-FROM node:16.13.1-alpine as base-builder
-WORKDIR /app
-COPY package*.json ./
-COPY . .
+FROM node:22.16.0-alpine as base-builder
+env CI=true
 
-# build stage for development
-FROM base-builder as development-builder
-RUN npm install --also=dev
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@10.11.0 --activate
+
+WORKDIR /app
+
+# Copy dependency files and source code
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile --dev && \
+    pnpm install --frozen-lockfile
+
+COPY . .
 
 # build stage for production
 FROM base-builder as production-builder
-RUN npm install
-RUN npm run build
+RUN pnpm run build
 
 # production stage
 FROM nginx:stable-alpine as production
@@ -21,11 +26,6 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 # development stage
-FROM development-builder as development
-
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV PATH=$PATH:/home/node/.npm-global/bin
-RUN npm -g install @vue/cli
-
-EXPOSE 8080
-CMD ["npm", "run", "serve"]
+FROM base-builder as development
+EXPOSE 4173
+CMD ["pnpm", "run", "serve", "--host=0.0.0.0"]
